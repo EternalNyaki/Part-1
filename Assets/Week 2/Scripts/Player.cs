@@ -25,4 +25,9 @@ public class Player : MonoBehaviour
     {
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Ouch!");
+    }
 }
