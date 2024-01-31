@@ -15,6 +15,8 @@ public class Jellyfish : MonoBehaviour
 
     private Rigidbody2D rb2d;
 
+    private Vector3 test;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +26,14 @@ public class Jellyfish : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(bullet != null && Time.frameCount % spawnRate == 0)
+        if(bullet != null && player != null && Time.frameCount % spawnRate == 0)
         {
+            //Ah yes, I love spending hours sorting through Unity's documentation trying to figure out
+            //which goddamn method does the thing I want
             Vector3 targetDirection = player.transform.position - transform.position;
-            Instantiate(bullet, transform.position, Quaternion.Euler(targetDirection));
+            test = targetDirection.normalized;
+            float targetAngle = Vector3.SignedAngle(Vector3.right, targetDirection, Vector3.forward);
+            Instantiate(bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, targetAngle)));
         }
     }
 
@@ -46,5 +52,11 @@ public class Jellyfish : MonoBehaviour
         {
             direction *= -1;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + test);
     }
 }
