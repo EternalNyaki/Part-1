@@ -41,7 +41,8 @@ public class Jellyfish : MonoBehaviour
         if(collision.gameObject == player)
         {
             Destroy(player);
-        } else if(collision.gameObject == border)
+        } 
+        else if(collision.gameObject == border)
         {
             direction *= -1;
         }
