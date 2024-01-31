@@ -172,7 +172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  spawnRate: 600
+  spawnRate: 3000
   bullet: {fileID: 1748549579060367268, guid: 66b2349dd2faf904ab63401c2d7b8a06, type: 3}
   player: {fileID: 0}
-  border: {fileID: 0}

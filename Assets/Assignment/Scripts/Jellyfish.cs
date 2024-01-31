@@ -9,7 +9,6 @@ public class Jellyfish : MonoBehaviour
 
     public GameObject bullet;
     public GameObject player;
-    public GameObject border;
 
     private int direction = 1;
 
@@ -48,7 +47,7 @@ public class Jellyfish : MonoBehaviour
         {
             Destroy(player);
         } 
-        else if(collision.gameObject == border)
+        else if(collision.gameObject.tag == "Border")
         {
             direction *= -1;
         }
